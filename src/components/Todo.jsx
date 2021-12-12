@@ -1,88 +1,93 @@
+import { useState } from 'react';
 import '../css/reset.css';
 import '../css/Todo.css';
 
 function Todo() {
+  const [todos, setTodos] = useState([
+    {
+    id:1,
+    title:"Read a book",
+    isComplete:false
+  },
+    {
+    id:2,
+    title:"Pickup kids from school",
+    isComplete:true
+  },
+    {
+    id:3,
+    title:"Walk the dog",
+    isComplete:false
+  },
+]);
+
+const [todoInput, setTodoInput] = useState('');
+
+const [idForTodo, setIdForTodo] = useState(4);
+
+  const addTodo = (event) => {
+    event.preventDefault();
+
+    if(todoInput.trim().length === 0){
+      return;
+    }
+    setTodos([...todos, {id:idForTodo, title:todoInput, isComplete:false}]);
+
+    setTodoInput('');
+
+    setIdForTodo(prevId => prevId + 1);
+  }
+
+  const deleteTodo = (id) => {
+    setTodos([...todos].filter(todo => todo.id !== id));
+  }
+
+  
+  const handleInput = (event) => {
+      setTodoInput(event.target.value);
+  }
+
   return (
     <div className="todo-app-container">
       <div className="todo-app">
         <h2>Todo App</h2>
-        <form action="#">
+        <form action="/endpoint" onSubmit={addTodo}>
           <input
             type="text"
             className="todo-input"
+            value={todoInput}
+            onChange={handleInput}
             placeholder="What do you need to do?"
           />
         </form>
 
         <ul className="todo-list">
-          <li className="todo-item-container">
-            <div className="todo-item">
-              <input type="checkbox" />
-              <span className="todo-item-label">Finish React Series</span>
-              {/* <input type="text" className="todo-item-input" value="Finish React Series" /> */}
-            </div>
-            <button className="x-button">
-              <svg
-                className="x-button-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </li>
-          <li className="todo-item-container">
-            <div className="todo-item">
-              <input type="checkbox" />
-              <span className="todo-item-label line-through">
-                Go to Grocery
-              </span>
-              {/* <input type="text" className="todo-item-input" value="Go to Grocery" /> */}
-            </div>
-            <button className="x-button">
-              <svg
-                className="x-button-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </li>
-          <li className="todo-item-container">
-            <div className="todo-item">
-              <input type="checkbox" />
-              <span className="todo-item-label">Do other thing</span>
-              {/* <input type="text" className="todo-item-input" value="Do other thing /> */}
-            </div>
-            <button className="x-button">
-              <svg
-                className="x-button-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </li>
+          {todos.map(todo => (
+               <li key={todo.id} className="todo-item-container">
+               <div className="todo-item">
+                 <input type="checkbox" />
+                 <span className="todo-item-label">{todo.title}</span>
+                 {/* <input type="text" className="todo-item-input" value="Finish React Series" /> */}
+               </div>
+               <button onClick={() => deleteTodo(todo.id)} className="x-button">
+                 <svg
+                   className="x-button-icon"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke="currentColor"
+                 >
+                   <path
+                     strokeLinecap="round"
+                     strokeLinejoin="round"
+                     strokeWidth={2}
+                     d="M6 18L18 6M6 6l12 12"
+                   />
+                 </svg>
+               </button>
+             </li>
+          ))}
+         
+        
         </ul>
 
         <div className="check-all-container">
