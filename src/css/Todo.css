@@ -135,3 +135,9 @@
     padding-top: 16px;
     border-top: 1px solid lightgray;
   }
+
+  .no-todos-container{
+    margin: 30px auto;
+    text-align: center;
+    font-size: 1.2rem;
+  }
