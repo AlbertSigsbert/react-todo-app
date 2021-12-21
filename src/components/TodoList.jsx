@@ -4,6 +4,7 @@ import TodosRemaining from "./TodosRemaining";
 import TodosClearCompleted from "./TodosClearCompleted";
 import TodosCheckAll from "./TodosCheckAll";
 import TodoFilters from "./TodoFilters";
+import { StyledList } from "./styled/List.styled";
 
 
 TodoList.propTypes = {
@@ -34,10 +35,10 @@ function TodoList({
   const [filter, setFilter] = useState('all');
   return (
     <>
-      <ul className="todo-list">
+      <StyledList>
         { todosFiltered(filter).map((todo) => (
-          <li key={todo.id} className="todo-item-container">
-            <div className="todo-item">
+          <li key={todo.id}>
+            <div>
               <input
                 type="checkbox"
                 onChange={() => completeTodo(todo.id)}
@@ -46,9 +47,9 @@ function TodoList({
               {!todo.isEditing ? (
                 <span
                   onDoubleClick={() => markAsEditing(todo.id)}
-                  className={`todo-item-label ${
+                  className={ 
                     todo.isComplete ? "line-through" : ""
-                  }`}
+                  }
                 >
                   {todo.title}
                 </span>
@@ -86,7 +87,7 @@ function TodoList({
             </button>
           </li>
         ))}
-      </ul>
+      </StyledList>
       <div className="check-all-container">
        <TodosCheckAll checkAll={checkAll}  />
 
