@@ -27,12 +27,17 @@ input{
 input:focus{
     border:none;
     outline: none;
+    padding-left: 4.5rem;
 }
 
+input:focus::placeholder{
+  padding:0;
+}
 
 input::placeholder{
     font-weight: 500;
     font-size: 18px; 
     padding: 3.5rem;
+    
 }
 `;

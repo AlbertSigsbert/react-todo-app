@@ -8,9 +8,9 @@ TodoFilters.propTypes = {
 function TodoFilters({ filter, setFilter }) {
   return (
     <div>
-      <button onClick={() => setFilter('all')} className={`button filter-button ${ filter === 'all' ? "filter-button-active" :""} `}>All</button>
-      <button onClick={() => setFilter('active')} className={`button filter-button ${ filter === 'active' ? "filter-button-active" :""} `}>Active</button>
-      <button onClick={() => setFilter('completed')} className={`button filter-button ${ filter === 'completed' ? "filter-button-active" :""} `}>Completed</button>
+      <a href="/#" onClick={() => setFilter('all')} className={ filter === 'all' ? "filter-active" :""}>All</a>
+      <a href="/#" onClick={() => setFilter('active')} className={  filter === 'active' ? "filter-active" :"" }>Active</a>
+      <a href="/#" onClick={() => setFilter('completed')} className={  filter === 'completed' ? "filter-active" :"" }>Completed</a>
     </div>
   );
 }

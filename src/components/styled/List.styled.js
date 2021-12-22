@@ -23,13 +23,18 @@ export const StyledList = styled.ul`
     span {
         margin-left: 16px;
     }
+    span::before{
+    display: block;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    left: 0.7rem;
+    top: 0.2rem;
   }
-
-
-
   div {
     display: flex;
     align-items: center;
+    position: relative;
     flex: 1;
     font-size: 18px;
     margin-right: 24px;
@@ -52,12 +57,43 @@ export const StyledList = styled.ul`
     outline: none;
     transition-duration: 0.3s;
     
-    &:checked{
+    &:checked {
         background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%)) ;
+   
     }
+
+    &:hover{
+      border-color: hsl(192, 100%, 67%);
+    }
+  
+  }
+
+  input:checked::before{
+    background-image: url('./images/icon-check.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+    width: 20px; 
+    height: 20px;
+    content:"";
+    position: absolute;
+    left: .5rem;
+    top: 0.5rem; 
+}
+
+
+ &:hover{
+   cursor: pointer;
+ }
 
   }
 
+
+
  
+  
+
+
     
 `;

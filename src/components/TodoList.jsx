@@ -5,7 +5,8 @@ import TodosClearCompleted from "./TodosClearCompleted";
 import TodosCheckAll from "./TodosCheckAll";
 import TodoFilters from "./TodoFilters";
 import { StyledList } from "./styled/List.styled";
-
+import {  StyledControllers } from "./styled/Controllers.styled";
+import { StyledFiltersContainer } from "./styled/FiltersContainer.styled";
 
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
@@ -31,25 +32,23 @@ function TodoList({
   clearCompleted,
   checkAll,
 }) {
-
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState("all");
   return (
     <>
       <StyledList>
-        { todosFiltered(filter).map((todo) => (
+        {todosFiltered(filter).map((todo) => (
           <li key={todo.id}>
             <div>
               <input
                 type="checkbox"
                 onChange={() => completeTodo(todo.id)}
                 checked={todo.isComplete ? true : false}
+               
               />
               {!todo.isEditing ? (
                 <span
                   onDoubleClick={() => markAsEditing(todo.id)}
-                  className={ 
-                    todo.isComplete ? "line-through" : ""
-                  }
+                  className={todo.isComplete ? "line-through" : ""}
                 >
                   {todo.title}
                 </span>
@@ -70,33 +69,22 @@ function TodoList({
                 />
               )}
             </div>
-            <button onClick={() => deleteTodo(todo.id)} className="x-button">
-              <svg
-                className="x-button-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+            <a href="/#" onClick={() => deleteTodo(todo.id)}>
+              <img src="./images/icon-cross.svg" alt="icon-cross" />
+            </a>
           </li>
         ))}
-      </StyledList>
-      <div className="check-all-container">
-       <TodosCheckAll checkAll={checkAll}  />
 
-        <TodosRemaining remaining={remaining} />
-      </div>
-      <div className="other-buttons-container">
-         <TodoFilters filter={filter}  setFilter={setFilter}/>
-        <TodosClearCompleted clearCompleted={clearCompleted} />
-      </div>
+        <StyledControllers>
+          <TodosRemaining remaining={remaining} />
+          <TodosCheckAll checkAll={checkAll} />
+          <TodosClearCompleted clearCompleted={clearCompleted} />
+        </StyledControllers>
+
+        <StyledFiltersContainer>
+          <TodoFilters filter={filter} setFilter={setFilter} />
+        </StyledFiltersContainer>
+      </StyledList>
     </>
   );
 }

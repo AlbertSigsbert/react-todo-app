@@ -8,7 +8,7 @@ TodosCheckAll.propTypes = {
 function TodosCheckAll({checkAll}) {
     return (
         <div>
-           <button onClick={checkAll} className="button">Check All</button>
+           <a href="/#" onClick={checkAll} >Check All</a>
         </div>
     );
 }

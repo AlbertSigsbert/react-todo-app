@@ -65,21 +65,22 @@ body {
 /* .todo-item-label {
   margin-left: 16px;
 } */
-
+/* 
 .todo-item-input {
   margin-left: 8px;
   width: 100%;
   border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   padding: 8px;
   font-size: 18px;
-}
-
+  outline: none;
+} */
+/* 
 .line-through {
   text-decoration: line-through;
-}
+  
+} */
 
-.x-button {
+/* .x-button {
   background: white;
   color: #6B7280;
   border: none;
@@ -93,9 +94,9 @@ body {
 .x-button-icon {
   width: 1.5rem;
   height: 1.5rem;
-}
+} */
 
-button {
+/* button {
   color: #6B7280;
   font-size: 14px;
   background: white;
@@ -107,17 +108,17 @@ button {
 
 .button:hover {
   border: 1px solid lightgray;
-}
+} */
 
-.filter-button {
+/* .filter-button {
   border: 1px solid white;
 }
 
 .filter-button-active {
   border: 1px solid lightgray;
-}
+} */
 
-.check-all-container {
+/* .check-all-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -125,7 +126,7 @@ button {
   margin-top: 22px;
   padding-top: 16px;
   border-top: 1px solid lightgray;
-}
+} */
 
 .other-buttons-container {
   display: flex;

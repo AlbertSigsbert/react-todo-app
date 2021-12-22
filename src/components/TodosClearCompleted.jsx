@@ -8,7 +8,7 @@ TodosClearCompleted.propTypes = {
 function TodosClearCompleted({clearCompleted}) {
   return (
     <div>
-      <button onClick={clearCompleted} className="button">Clear completed</button>
+      <a href="/#" onClick={clearCompleted} >Clear completed</a>
     </div>
   );
 }
