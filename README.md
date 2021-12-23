@@ -3,7 +3,7 @@
 This is a solution to the [Todo App challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-AmqPxeRjL).
 Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-<img src="public/images/desktop-preview.png">
+<img src="public/images/desktop-preview.jpg">
 
 
 ## Table of contents
