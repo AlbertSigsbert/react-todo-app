@@ -18,4 +18,12 @@ export const StyledFiltersContainer = styled.div`
     }
     
   }
+
+  @media (max-width: 576px) {
+
+    a{
+    font-size: .8rem;
+    
+    }
+  }
 `

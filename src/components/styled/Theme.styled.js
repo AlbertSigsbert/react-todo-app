@@ -17,4 +17,8 @@ export const lightTheme = {
     DarkGrayishBlue: "hsl(236, 9%, 61%)",
     VeryDarkGrayishBlue: "hsl(235, 19%, 35%)",
   },
+
+
 };
+
+

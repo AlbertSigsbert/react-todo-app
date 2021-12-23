@@ -18,4 +18,12 @@ export const StyledControllers= styled.div`
       color: ${({ theme }) => theme.colors.LightGrayishBlue};
     }
   }
+
+  @media (max-width: 576px) {
+    a,span{
+    font-size: .8rem;
+    margin-left: 0px;
+    }
+  }
+
 `;

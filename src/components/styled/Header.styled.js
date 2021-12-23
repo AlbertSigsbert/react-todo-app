@@ -19,4 +19,18 @@ export const StyledHeader = styled.div`
      color: #fff;
      letter-spacing: 12px;
  }
+
+ @media (max-width:576px){
+    max-width: 22rem;
+
+    h2{
+     font-size:1.5rem;
+     letter-spacing: 8px;
+   }
+   }
+ @media (max-width:400px){
+    max-width: 20rem;
+   }
+
+  
 `
