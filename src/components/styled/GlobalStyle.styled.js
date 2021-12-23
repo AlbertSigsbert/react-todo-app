@@ -5,14 +5,14 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     color: ${ ({theme}) => theme.colors.LightGrayishBlue };
-    background-color: hsl(235, 21%, 11%);
+    background-color: ${ ({theme}) => theme.colors.bodyBg } ;
     
   }
 
   
 .line-through {
   text-decoration: line-through;
-  color: ${ ({ theme }) => theme.colors.VeryDarkGrayishBlue};
+  color: ${ ({ theme }) => theme.colors.checkLine} !important;
 }
 
 

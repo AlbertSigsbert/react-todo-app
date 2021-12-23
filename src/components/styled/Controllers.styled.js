@@ -12,10 +12,10 @@ export const StyledControllers= styled.div`
     font-size: 1rem;
     text-decoration: none;
     margin-left: 14px;
-    color: ${({ theme }) => theme.colors.VeryDarkGrayishBlue};
+    color: ${({ theme }) => theme.colors.filters};
 
     &:hover {
-      color: ${({ theme }) => theme.colors.LightGrayishBlue};
+      color: ${({ theme }) => theme.colors.filtersHover};
     }
   }
 

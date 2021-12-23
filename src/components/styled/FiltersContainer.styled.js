@@ -11,10 +11,10 @@ export const StyledFiltersContainer = styled.div`
   a{
     text-decoration: none;
     margin-left: 14px;
-    color:${ ({ theme }) => theme.colors.VeryDarkGrayishBlue};
+    color:${ ({ theme }) => theme.colors.filters};
 
     &:hover{
-       color: ${ ({theme}) => theme.colors.LightGrayishBlue };
+       color: ${ ({theme}) => theme.colors.filtersHover };
     }
     
   }

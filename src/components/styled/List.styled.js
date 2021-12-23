@@ -8,7 +8,8 @@ export const StyledList = styled.ul`
   margin: 0 auto;
   max-width: 36rem;
   z-index: 10;
-  background-color: ${({ theme }) => theme.colors.VeryDarkDesaturatedBlue};
+  background-color: ${({ theme }) => theme.colors.listBg};
+  box-shadow: ${({ theme }) => theme.colors.boxShadow} 0px 8px 24px;
   border-radius: 6px;
 
   li {
@@ -21,6 +22,7 @@ export const StyledList = styled.ul`
 
     span {
       margin-left: 16px;
+      color:  ${({ theme }) => theme.colors.todos} ;
     }
 
     div {
@@ -39,7 +41,7 @@ export const StyledList = styled.ul`
       height: 25px;
       width: 25px;
       padding: 1rem;
-      border: 1px solid ${({ theme }) => theme.colors.veryDarkGrayishBlue};
+      border: 1px solid ${({ theme }) => theme.colors.borderColor};
       border-radius: 50%;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -66,8 +68,8 @@ export const StyledList = styled.ul`
         height: 20px;
         content: "";
         position: absolute;
-        left: 0.5rem;
-        top: 0.5rem;
+        left: 0.4rem;
+        top: 0.4rem;
       }
     }
 

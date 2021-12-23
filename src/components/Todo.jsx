@@ -8,7 +8,7 @@ import "../css/reset.css";
 import "../css/Todo.css";
 import { GlobalStyles } from "./styled/GlobalStyle.styled";
 import TodoBg from "./TodoBg";
-import { darkTheme } from "./styled/Theme.styled";
+import { darkTheme, lightTheme } from "./styled/Theme.styled";
 import Header from "./Header";
 
 function Todo() {
@@ -34,6 +34,12 @@ function Todo() {
   ]);
 
   const [idForTodo, setIdForTodo] = useState(4);
+
+  const [ theme, setTheme] = useState('dark');
+
+  const themeToggler = () => {
+    theme === 'dark' ? setTheme('light') : setTheme('dark');
+  }
 
   const addTodo = (todo) => {
     setTodos([...todos, { id: idForTodo, title: todo, isComplete: false }]);
@@ -123,7 +129,7 @@ function Todo() {
 
   return (
     <HelmetProvider>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
         <Helmet>
           <title>Todo App</title>
           <link rel="preconnect" href="https://fonts.googleapis.com"></link>
@@ -142,7 +148,7 @@ function Todo() {
 
         <TodoBg/>
 
-            <Header />
+            <Header themeToggler={themeToggler} />
 
             <TodoForm addTodo={addTodo} />
 
