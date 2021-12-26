@@ -1,4 +1,4 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   padding: 10px;
   background: #f3f4f6;
-}
+} */
 
 /* .todo-app {
   margin: auto;
@@ -128,7 +128,7 @@ body {
   border-top: 1px solid lightgray;
 } */
 
-.other-buttons-container {
+/* .other-buttons-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,10 +136,10 @@ body {
   margin-top: 22px;
   padding-top: 16px;
   border-top: 1px solid lightgray;
-}
-
+} */
+/* 
 .no-todos-container {
   margin: 30px auto;
   text-align: center;
   font-size: 1.2rem;
-}
+} */

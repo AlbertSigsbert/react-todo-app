@@ -1,41 +1,23 @@
-import { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import NoTodos from "./NoTodos";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import TodoBg from "./TodoBg";
+import Header from "./Header";
+import useLocalStorage from "./hooks/useLocalStorage";
 import { ThemeProvider } from "styled-components";
 import "../css/reset.css";
-import "../css/Todo.css";
 import { GlobalStyles } from "./styled/GlobalStyle.styled";
-import TodoBg from "./TodoBg";
 import { darkTheme, lightTheme } from "./styled/Theme.styled";
-import Header from "./Header";
+
+
 
 function Todo() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: "Read a book",
-      isComplete: false,
-      isEditing: false,
-    },
-    {
-      id: 2,
-      title: "Pickup kids from school",
-      isComplete: true,
-      isEditing: false,
-    },
-    {
-      id: 3,
-      title: "Walk the dog",
-      isComplete: false,
-      isEditing: false,
-    },
-  ]);
+  const [todos, setTodos] = useLocalStorage('todos', []);
 
-  const [idForTodo, setIdForTodo] = useState(4);
+  const [idForTodo, setIdForTodo] =useLocalStorage('idForTodo', 1);
 
-  const [ theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
   const themeToggler = () => {
     theme === 'dark' ? setTheme('light') : setTheme('dark');
