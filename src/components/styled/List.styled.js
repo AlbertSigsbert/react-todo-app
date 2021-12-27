@@ -5,7 +5,7 @@ export const StyledList = styled.ul`
   top: 30%;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: 1.5rem auto;
   max-width: 36rem;
   z-index: 10;
   background-color: ${({ theme }) => theme.colors.listBg};
