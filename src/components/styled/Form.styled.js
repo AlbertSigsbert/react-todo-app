@@ -15,30 +15,34 @@ export const StyledForm = styled.div`
     border-radius: 6px;
     background-color: ${({ theme }) => theme.colors.VeryDarkDesaturatedBlue};
     color: ${({ theme }) => theme.colors.LightGrayishBlue};
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0;
     font-family: "Josefin Sans", sans-serif;
     font-size: 18px;
     font-weight: 400;
     margin-top: 16px;
     caret-color: hsl(220, 98%, 61%);
+    box-sizing: border-box;
+  }
+
+
+  input::placeholder {
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 4.5rem;
   }
 
   input:focus {
     border: none;
     outline: none;
-    padding-left: 4.5rem;
+    padding-left: 5rem;
   }
 
   input:focus::placeholder {
-    padding: 0;
+    padding-left: 0;
   }
 
-  input::placeholder {
-    font-weight: 500;
-    font-size: 18px;
-    padding: 3.5rem;
-  }
 
+ 
   @media (max-width: 576px) {
     max-width: 22rem;
     input {

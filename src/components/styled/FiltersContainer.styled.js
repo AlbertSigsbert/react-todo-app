@@ -4,7 +4,7 @@ export const StyledFiltersContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:1rem;
+  padding:0 1rem ;
   height: 3.8rem;
   font-size: 1rem;
 

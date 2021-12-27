@@ -1,38 +1,80 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useContext} from "react";
+import { TodosContext } from "./context/TodosContext";
 import TodosRemaining from "./TodosRemaining";
 import TodosClearCompleted from "./TodosClearCompleted";
 import TodosCheckAll from "./TodosCheckAll";
 import TodoFilters from "./TodoFilters";
 import { StyledList } from "./styled/List.styled";
-import {  StyledControllers } from "./styled/Controllers.styled";
+import { StyledControllers } from "./styled/Controllers.styled";
 import { StyledFiltersContainer } from "./styled/FiltersContainer.styled";
 
-TodoList.propTypes = {
-  todos: PropTypes.array.isRequired,
-  todosFiltered: PropTypes.func.isRequired,
-  completeTodo: PropTypes.func.isRequired,
-  markAsEditing: PropTypes.func.isRequired,
-  updateTodo: PropTypes.func.isRequired,
-  cancelEditing: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
-  remaining: PropTypes.func.isRequired,
-  clearCompleted: PropTypes.func.isRequired,
-  checkAll: PropTypes.func.isRequired,
-};
+function TodoList() {
+  const { todos, setTodos, filter } = useContext(TodosContext);
+  
 
-function TodoList({
-  todosFiltered,
-  completeTodo,
-  markAsEditing,
-  updateTodo,
-  cancelEditing,
-  deleteTodo,
-  remaining,
-  clearCompleted,
-  checkAll,
-}) {
-  const [filter, setFilter] = useState("all");
+  const completeTodo = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  };
+
+  const updateTodo = (event, id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (event.target.value.trim().length === 0) {
+        todo.isEditing = false;
+        return todo;
+      }
+      if (todo.id === id) {
+        todo.title = event.target.value;
+        todo.isEditing = false;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  };
+
+  const markAsEditing = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isEditing = true;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  };
+
+  const cancelEditing = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isEditing = false;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  };
+
+  const deleteTodo = (id) => {
+    setTodos([...todos].filter((todo) => todo.id !== id));
+  };
+
+  const todosFiltered = (filter) => {
+    if (filter === "all") {
+      return todos;
+    } else if (filter === "active") {
+      return todos.filter((todo) => !todo.isComplete);
+    } else if (filter === "completed") {
+      return todos.filter((todo) => todo.isComplete);
+    }
+  };
+
   return (
     <>
       <StyledList>
@@ -43,7 +85,6 @@ function TodoList({
                 type="checkbox"
                 onChange={() => completeTodo(todo.id)}
                 checked={todo.isComplete ? true : false}
-               
               />
               {!todo.isEditing ? (
                 <span
@@ -76,13 +117,13 @@ function TodoList({
         ))}
 
         <StyledControllers>
-          <TodosRemaining remaining={remaining} />
-          <TodosCheckAll checkAll={checkAll} />
-          <TodosClearCompleted clearCompleted={clearCompleted} />
+          <TodosRemaining />
+          <TodosCheckAll />
+          <TodosClearCompleted />
         </StyledControllers>
 
         <StyledFiltersContainer>
-          <TodoFilters filter={filter} setFilter={setFilter} />
+          <TodoFilters />
         </StyledFiltersContainer>
       </StyledList>
     </>
