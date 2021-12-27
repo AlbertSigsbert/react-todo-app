@@ -12,7 +12,7 @@ export const StyledHeader = styled.div`
  right: 0;
  margin :0 auto ;
 
- h2{
+ h1{
      font-size:3rem;
      font-weight: 700;
      text-transform: uppercase;
