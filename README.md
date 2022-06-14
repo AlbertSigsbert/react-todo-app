@@ -62,7 +62,6 @@ Users should be able to:
 - [Styled Components](https://styled-components.com/) - For styles
 
 
-
 ### Continued development
 
 Any possible improvement
